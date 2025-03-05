@@ -14,19 +14,13 @@ body {
 
 /* Overlapping Background for About Page */
 body.about-us-page {
-    background: url('https://images.pexels.com/photos/756688/pexels-photo-756688.jpeg') no-repeat center center/cover;
+    background: url('/images/10.jpg') no-repeat center center/cover;
     color: white;
 }
 
-/* Background Overlay */
+/* Remove Black Overlay */
 .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    display: none;
 }
 
 /* ========================== */
@@ -96,23 +90,27 @@ body.about-us-page {
 }
 
 /* ========================== */
-/* Blog Section Styling */
-/* ========================== */
 
-.blog-section {
-    padding: 50px 0;
+
+/* Blog Section Styling */
+/* Blog Section Styling */
+.blog-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 60px; /* Maintain proper spacing between sections */
 }
 
-/* Responsive Blog Section */
-@media (max-width: 768px) {
-    .blog-section {
-        flex-direction: column;
-        text-align: center;
-    }
+/* Blog Sections */
+.blog-section {
+    padding: 60px 10%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 15px;
+}
+
+/* Hover effect on entire section */
+.blog-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Blog Headings & Paragraph */
@@ -120,30 +118,64 @@ body.about-us-page {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 15px;
+    color: #f8f9fa;
+    transition: color 0.4s ease;
 }
 
-.blog-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+/* Change heading color on hover */
+.blog-section:hover h2 {
+    color: #ffcc00; /* Gold color effect */
 }
 
-/* Blog Images */
+/* Blog Images - Ensuring Consistent Size */
 .blog-section img {
     width: 100%;
-    max-width: 450px;
-    height: auto;
+    max-width: 550px;  /* Increased size for better visibility */
+    height: 350px;  /* Adjusted for uniform height */
+    object-fit: cover;  /* Ensures the image covers the area without stretching */
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Image zoom effect on hover */
+.blog-section:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Blog Text Box */
 .blog-text {
-    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: background 0.4s ease, transform 0.4s ease;
 }
+
+/* Glow effect on text box when hovered */
+.blog-section:hover .blog-text {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .blog-section {
+        text-align: center;
+    }
+
+    .blog-section img {
+        height: 280px; /* Adjust height for smaller screens */
+    }
+
+    .blog-text {
+        max-width: 100%;
+    }
+}
+
 
 /* ========================== */
 /* Welcome Section */
@@ -155,6 +187,7 @@ body.about-us-page {
     z-index: 2;
     position: relative;
 }
+
 
 /* ========================== */
 /* Card Styling */
@@ -192,3 +225,7 @@ body.about-us-page {
 .card-text {
     font-size: 1rem;
 }
+
+
+
+
